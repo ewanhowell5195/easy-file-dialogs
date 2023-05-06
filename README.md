@@ -75,7 +75,7 @@ const dir = await saveFileName({
 ```
 ---
 ### Canceling
-When a user cancels a file dialog, a `No file/directory selected` error will be thrown.
+When a user cancels a file/directory dialog, a `No file/directory selected` error will be thrown.
 
 ---
 ## confirm(args)
