@@ -31,7 +31,10 @@ export async function openDirectory(args) {
 export async function openFile(args) {
   args.type = "open"
   const paths = await get(args)
-  if (args.multiple) return Promise.all(paths.map(e => fs.promises.readFile(e, args.encoding)))
+  if (args.multiple) return Promise.all(paths.map(async e => [
+    e,
+    await fs.promises.readFile(e, args.encoding)
+  ]))
   return [
     paths[0],
     await fs.promises.readFile(paths[0], args.encoding)
