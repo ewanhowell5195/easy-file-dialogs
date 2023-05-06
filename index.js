@@ -2,13 +2,20 @@ import { spawn } from "child_process"
 import { fileURLToPath } from "url"
 import path from "node:path"
 import fs from "node:fs"
+import os from "node:os"
 
 async function get(args) {
+  let exe
+  const platform = os.platform()
+  if (platform === "win32") exe = "./python/dist/dialogWindows.exe"
+  else if (platform === "darwin") exe = "./python/dist/dialogMac"
+  else throw new Error("Unsupported. This library does not currently support this operating system")
+
   if (args.initialDir) args.initialDir = path.resolve(args.initialDir)
 
   if (args.icon && !fs.existsSync(args.icon)) throw new Error(`Icon file "${args.icon}" not found`)
 
-  const p = spawn("./python/dist/dialog.exe", [JSON.stringify(args)], {
+  const p = spawn(exe, [JSON.stringify(args)], {
     stdio: ["ignore", "pipe", "ignore"],
     cwd: fileURLToPath(new URL(".", import.meta.url))
   })
