@@ -1,7 +1,7 @@
 # easy-file-dialogs
 ### Open file/directory dialogs in Node.js
 ```js
-const dir = await openDirectory({
+const directory = await openDirectory({
   title: "Select Resource Pack",
   initialDir: "C:/Users/ewanh/AppData/Roaming/.minecraft/resourcepacks"
 })
@@ -20,12 +20,16 @@ import {
   saveFileName,
   confirm
 } from "easy-file-dialogs"
+
+// or
+
+import dialogs from "easy-file-dialogs"
 ```
 # Functions
 ## openDirectory(args)
 Open a directory selection dialog. Returns the selected directory path.
 ```js
-const dir = await openDirectory({
+const directory = await openDirectory({
   title: // The title at the top of the dialog
   icon: // An ico file that is shown at the top of the dialog
   initialDir: // The directory the dialog shows when opened
@@ -34,7 +38,7 @@ const dir = await openDirectory({
 ## openFile(args)
 Open a file selection dialog. Returns the file path and opened file in an array.
 ```js
-const dir = await openFile({
+const file = await openFile({
   // All arguments seen in openDirectory
   initialFile: // A file name to be selected when opened
   fileTypes: [ // An array of file types that are allowed to be selected
@@ -54,14 +58,14 @@ const dir = await openFile({
 ## openFileName(args)
 Open a file selection dialog. Returns the selected file path.
 ```js
-const dir = await openFileName({
+const filePath = await openFileName({
   // All arguments same as openFile just without encoding
 })
 ```
 ## saveFile(file, args)
 Open a file save dialog. Saves the provided file to the selected file path and returns the selected file path.
 ```js
-const dir = await saveFile(fileData, {
+const filePath = await saveFile(fileData, {
   // All arguments same as openFile
   confirmOverwrite: // Boolean to disable the confirm overwrite message that appears
 })
@@ -69,7 +73,7 @@ const dir = await saveFile(fileData, {
 ## saveFileName(file, args)
 Open a file save dialog. Returns the selected file path.
 ```js
-const dir = await saveFileName({
+const filePath = await saveFileName({
   // All arguments same as saveFile just without encoding
 })
 ```

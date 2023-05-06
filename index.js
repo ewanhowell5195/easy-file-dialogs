@@ -61,3 +61,12 @@ export async function confirm(args) {
   args.type = "confirm"
   return (await get(args))[0] === "True"
 }
+
+export default {
+  openDirectory,
+  openFile,
+  openFileName,
+  saveFile,
+  saveFileName,
+  confirm
+}
