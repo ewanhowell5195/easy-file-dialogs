@@ -1,5 +1,5 @@
-import { spawn } from "child_process"
-import { fileURLToPath } from "url"
+import { spawn } from "node:child_process"
+import { fileURLToPath } from "node:url"
 import path from "node:path"
 import fs from "node:fs"
 import os from "node:os"
