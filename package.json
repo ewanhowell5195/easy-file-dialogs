@@ -1,11 +1,14 @@
 {
   "name": "easy-file-dialogs",
-  "version": "1.1.0",
-  "type": "module",
   "description": "Open file/directory dialogs in Node.js",
-  "exports": "./index.js",
   "author": "Ewan Howell",
   "license": "MIT",
+  "version": "1.2.0",
+  "type": "module",
+  "exports": "./index.js",
+  "scripts": {
+    "postinstall": "node setup.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ewanhowell5195/easy-file-dialogs.git"
